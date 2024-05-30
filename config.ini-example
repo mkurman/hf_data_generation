@@ -1,0 +1,22 @@
+[base]
+USE_HUGGING_FACE=1 # 1 - True, 0 - False
+HF_TOKEN=your_HF_api_access_key
+GROQ_TOKEN=your_GROQ_api_access_key
+DATASET_PATH=your_dataset_path # Path to the dataset file with extension. The dataset should be in a .jsonl, .json, .csv, .xlsx, .arrow, .parquet or huggingface dataset name like example/dataset-from-hf
+SLEEP_TIME_S=30 # Time in seconds to sleep between each request to the API
+TIMEOUT=1000 # Timeout of a single parallel job request in seconds
+N_JOBS=10 # Number of parallel jobs to run
+NUM_RETRIES=3 # Number of retries for each request if it fails
+OUTPUT_FILE_NAME=generated_data # Path to save generated data without file extension. It will be saved in the same directory as a .jsonl file
+ERROR_OUTPUT_FILE_NAME=generation_error_data # Path to save error data without file extension. It will be saved in the same directory as a .jsonl file
+INSTRUCTION= # You can provide system instructions here. If you want to provide multiple instructions, separate them with a comma. For example, "You are a well qualified assistant, You are a well qualified assistant. Your task is to write a summary of the given text."
+MAX_RESPONSE_TOKENS=4096 # Maximum number of tokens in the response
+TEMPERATURE=0.6 # Temperature for sampling
+SHUFFLE_INSTRUCTIONS=0 # 1 - True, 0 - False
+SKIP_X_INSTRUCTIONS=0 # Number of instructions to skip
+
+[hf_generation]
+MODEL_API_ENDPOINT=https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3-70B-Instruct
+
+[groq_generation]
+MODEL_NAME=llama3-70b-8192
